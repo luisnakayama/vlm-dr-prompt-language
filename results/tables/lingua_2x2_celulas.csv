@@ -1,0 +1,17 @@
+modelo,base,instrução,formato,n,kappa quadrático,superestima %,subestima %,sem_grau %,encaminhamento_perdido %,grave_como_leve %,encaminhamento_desnecessario %,normal_como_referenciavel %
+medgemma_27b,brset,EN,EN,300,0.895,12.0,4.7,0.0,16.7,8.8,1.8,0.5
+medgemma_27b,brset,EN,PT,300,0.889,13.3,5.0,0.0,16.7,8.8,1.8,0.5
+medgemma_27b,brset,PT,EN,300,0.664,60.7,3.0,0.0,5.6,0.0,25.4,21.0
+medgemma_27b,brset,PT,PT,300,0.408,77.0,2.7,0.0,1.4,0.0,68.9,66.8
+medgemma_27b,mbrset,EN,EN,300,0.736,5.7,15.7,0.0,45.5,21.1,1.6,0.9
+medgemma_27b,mbrset,EN,PT,300,0.752,6.3,15.3,0.0,45.5,21.1,1.6,0.9
+medgemma_27b,mbrset,PT,EN,300,0.702,28.3,8.0,0.0,10.9,0.0,9.4,8.7
+medgemma_27b,mbrset,PT,PT,300,0.422,56.7,6.0,0.0,5.5,0.0,38.4,36.5
+medgemma_4b,brset,EN,EN,300,0.725,33.0,8.3,0.0,5.6,0.0,20.2,15.9
+medgemma_4b,brset,EN,PT,300,0.738,30.0,7.7,0.0,5.6,0.0,20.2,15.9
+medgemma_4b,brset,PT,EN,300,0.549,78.3,8.3,0.0,4.2,0.0,19.7,15.9
+medgemma_4b,brset,PT,PT,300,0.565,76.7,8.0,0.0,4.2,0.0,18.9,15.0
+medgemma_4b,mbrset,EN,EN,300,0.697,13.7,9.3,0.0,7.3,0.0,12.7,11.7
+medgemma_4b,mbrset,EN,PT,300,0.693,13.3,9.3,0.0,7.3,0.0,12.7,11.7
+medgemma_4b,mbrset,PT,EN,300,0.396,68.3,7.3,0.0,7.3,0.0,26.1,26.1
+medgemma_4b,mbrset,PT,PT,300,0.42,61.7,7.7,0.0,7.3,0.0,24.9,24.8

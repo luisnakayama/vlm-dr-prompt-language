@@ -1,0 +1,21 @@
+# Controlled-access data (PhysioNet): never commit
+data/
+results/preds/
+results/nuvem_*/
+*.jpg
+*.jpeg
+*.tar
+*.tar.gz
+labels_*.csv
+Embeddings_*.csv
+*.npy
+*.npz
+hf_cache/
+*.log
+
+# Python / Jupyter
+__pycache__/
+.ipynb_checkpoints/
+.venv/
+*.egg-info/
+.DS_Store

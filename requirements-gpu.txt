@@ -1,0 +1,17 @@
+# Máquina com GPU NVIDIA (notebook 03). O torch com CUDA costuma vir na imagem da máquina; se não vier:
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu124
+transformers==4.57.6      # mesma versão do piloto
+accelerate
+huggingface_hub
+pillow
+numpy
+pandas
+scikit-learn
+scipy
+matplotlib
+pyyaml
+tqdm
+nbformat
+nbclient
+nbconvert
+ipykernel

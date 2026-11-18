@@ -1,0 +1,107 @@
+# Prompts fixos. Não editar depois do registro no OSF; ajustes só no conjunto piloto.
+# O modelo dá o grau ICDR (0-4) e diz se há edema macular; referenciável = ICDR >= 2 e/ou edema (derivado no código).
+# prefill = início da resposta já escrito; o modelo continua a partir dele, então o 1º token gerado é o grau.
+# yes_words/no_words = palavras aceitas para o edema (o escore usa o primeiro token de cada uma).
+
+main_en:
+  papel: principal
+  lang: en
+  text: >-
+    You are an ophthalmologist specialized in retina, grading diabetic retinopathy.
+    This is a color fundus photograph from a patient with diabetes.
+    Grade diabetic retinopathy on the International Clinical Diabetic Retinopathy (ICDR) scale:
+    0 = no apparent retinopathy: no diabetic lesions at all;
+    1 = mild non-proliferative: microaneurysms only (tiny, round, sharply defined red dots), with no
+    hemorrhages, hard exudates or cotton-wool spots;
+    2 = moderate non-proliferative: more than just microaneurysms, such as dot or blot intraretinal hemorrhages,
+    hard exudates (yellow, waxy deposits) or cotton-wool spots (fluffy white patches), but less than severe;
+    3 = severe non-proliferative: any of more than 20 intraretinal hemorrhages in each of 4 quadrants,
+    definite venous beading in 2 or more quadrants, or prominent intraretinal microvascular abnormalities (IRMA)
+    in 1 or more quadrants, with no signs of proliferative retinopathy;
+    4 = proliferative: neovascularization of the disc or elsewhere (fine new abnormal vessels),
+    and/or vitreous or preretinal hemorrhage.
+    Also state whether diabetic macular edema is present (retinal thickening or hard exudates in the macula).
+    Answer only in this format: ICDR: <0-4>; Macular edema: <Yes/No>
+  prefill: "ICDR: "
+  yes_words: ["Yes", "yes", "YES"]
+  no_words: ["No", "no", "NO"]
+
+nodef_en:
+  papel: robustez (sem as definições)
+  lang: en
+  text: >-
+    You are an ophthalmologist specialized in retina, grading diabetic retinopathy.
+    This is a color fundus photograph from a patient with diabetes.
+    Grade diabetic retinopathy on the ICDR scale (0 to 4) and state whether diabetic macular edema is present.
+    Answer only in this format: ICDR: <0-4>; Macular edema: <Yes/No>
+  prefill: "ICDR: "
+  yes_words: ["Yes", "yes", "YES"]
+  no_words: ["No", "no", "NO"]
+
+main_pt:
+  papel: robustez (português)
+  lang: pt
+  text: >-
+    Você é um oftalmologista especialista em retina, graduando retinopatia diabética.
+    Esta é uma retinografia colorida de um paciente com diabetes.
+    Gradue a retinopatia diabética pela escala internacional (ICDR):
+    0 = sem retinopatia aparente: nenhuma lesão diabética;
+    1 = não proliferativa leve: apenas microaneurismas (pontos vermelhos pequenos, redondos e bem delimitados),
+    sem hemorragias, exsudatos duros ou manchas algodonosas;
+    2 = não proliferativa moderada: mais que apenas microaneurismas, como hemorragias intrarretinianas puntiformes
+    ou em mancha, exsudatos duros (depósitos amarelados e cerosos) ou manchas algodonosas (áreas brancas e
+    felpudas), porém menos que grave;
+    3 = não proliferativa grave: qualquer um de mais de 20 hemorragias intrarretinianas em cada um dos 4 quadrantes,
+    ensalsichamento venoso definido em 2 ou mais quadrantes, ou anormalidades microvasculares intrarretinianas
+    (IRMA) proeminentes em 1 ou mais quadrantes, sem sinais de retinopatia proliferativa;
+    4 = proliferativa: neovascularização do disco ou de outro local (vasos novos finos e anormais),
+    e/ou hemorragia vítrea ou pré-retiniana.
+    Diga também se há edema macular diabético (espessamento retiniano ou exsudatos duros na mácula).
+    Responda somente neste formato: ICDR: <0-4>; Edema macular: <Sim/Não>
+  prefill: "ICDR: "
+  yes_words: ["Sim", "sim", "SIM"]
+  no_words: ["Não", "não", "NÃO", "Nao", "nao"]
+
+# --- Artigo 2: experimento 2x2 (língua da instrução x língua do formato da resposta) ---
+# main_en = instrução EN + formato EN; main_pt = instrução PT + formato PT; os dois abaixo cruzam.
+# Mesmo prefill ("ICDR: ") nas quatro combinações; só a frase final de formato e as palavras sim/não mudam.
+
+pt_instr_en_fmt:
+  papel: artigo 2 (instrução PT, formato EN)
+  lang: pt
+  text: >-
+    Você é um oftalmologista especialista em retina, graduando retinopatia diabética. Esta é uma retinografia
+    colorida de um paciente com diabetes. Gradue a retinopatia diabética pela escala internacional (ICDR): 0 = sem
+    retinopatia aparente: nenhuma lesão diabética; 1 = não proliferativa leve: apenas microaneurismas (pontos
+    vermelhos pequenos, redondos e bem delimitados), sem hemorragias, exsudatos duros ou manchas algodonosas; 2 =
+    não proliferativa moderada: mais que apenas microaneurismas, como hemorragias intrarretinianas puntiformes ou
+    em mancha, exsudatos duros (depósitos amarelados e cerosos) ou manchas algodonosas (áreas brancas e felpudas),
+    porém menos que grave; 3 = não proliferativa grave: qualquer um de mais de 20 hemorragias intrarretinianas em
+    cada um dos 4 quadrantes, ensalsichamento venoso definido em 2 ou mais quadrantes, ou anormalidades
+    microvasculares intrarretinianas (IRMA) proeminentes em 1 ou mais quadrantes, sem sinais de retinopatia
+    proliferativa; 4 = proliferativa: neovascularização do disco ou de outro local (vasos novos finos e anormais),
+    e/ou hemorragia vítrea ou pré-retiniana. Diga também se há edema macular diabético (espessamento retiniano ou
+    exsudatos duros na mácula). Responda somente neste formato: ICDR: <0-4>; Macular edema: <Yes/No>
+  prefill: "ICDR: "
+  yes_words: ["Yes", "yes", "YES"]
+  no_words: ["No", "no", "NO"]
+
+en_instr_pt_fmt:
+  papel: artigo 2 (instrução EN, formato PT)
+  lang: en
+  text: >-
+    You are an ophthalmologist specialized in retina, grading diabetic retinopathy. This is a color fundus
+    photograph from a patient with diabetes. Grade diabetic retinopathy on the International Clinical Diabetic
+    Retinopathy (ICDR) scale: 0 = no apparent retinopathy: no diabetic lesions at all; 1 = mild non-proliferative:
+    microaneurysms only (tiny, round, sharply defined red dots), with no hemorrhages, hard exudates or cotton-wool
+    spots; 2 = moderate non-proliferative: more than just microaneurysms, such as dot or blot intraretinal
+    hemorrhages, hard exudates (yellow, waxy deposits) or cotton-wool spots (fluffy white patches), but less than
+    severe; 3 = severe non-proliferative: any of more than 20 intraretinal hemorrhages in each of 4 quadrants,
+    definite venous beading in 2 or more quadrants, or prominent intraretinal microvascular abnormalities (IRMA)
+    in 1 or more quadrants, with no signs of proliferative retinopathy; 4 = proliferative: neovascularization of
+    the disc or elsewhere (fine new abnormal vessels), and/or vitreous or preretinal hemorrhage. Also state
+    whether diabetic macular edema is present (retinal thickening or hard exudates in the macula). Answer only in
+    this format: ICDR: <0-4>; Edema macular: <Sim/Não>
+  prefill: "ICDR: "
+  yes_words: ["Sim", "sim", "SIM"]
+  no_words: ["Não", "não", "NÃO", "Nao", "nao"]

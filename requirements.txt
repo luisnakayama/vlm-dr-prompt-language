@@ -1,0 +1,19 @@
+# Ambiente local (Mac com Apple Silicon). Python 3.11 ou 3.12.
+torch>=2.5
+torchvision
+transformers>=4.53
+accelerate
+huggingface_hub
+pillow
+numpy
+pandas
+scikit-learn
+scipy
+statsmodels
+matplotlib
+pyyaml
+tqdm
+jupyterlab
+ipykernel
+nbformat
+nbclient
